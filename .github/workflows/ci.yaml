@@ -31,5 +31,9 @@ jobs:
         with:
           node_image: kindest/node:${{ matrix.k8s }}
           version: v0.20.0
+      - name: Install Skaffold
+        run: |
+          curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/latest/skaffold-linux-amd64 && \
+          sudo install skaffold /usr/local/bin/
       - name: Test
         run: make test
