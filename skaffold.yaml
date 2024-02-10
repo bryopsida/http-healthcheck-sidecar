@@ -18,3 +18,5 @@ verify:
       name: integration-test-container
       image: quay.io/curl/curl
       args: ["-X", "GET", "--fail", "http://sidecar-service:3000/health"]
+    executionMode:
+      kubernetesCluster: {}
