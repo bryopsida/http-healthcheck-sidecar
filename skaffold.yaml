@@ -1,0 +1,22 @@
+apiVersion: skaffold/v4beta6
+kind: Config
+metadata:
+  name: http-healthcheck-sidecar
+build:
+  artifacts:
+    - image: ghcr.io/bryopsida/http-healthcheck-sidecar
+      docker:
+        dockerfile: Dockerfile
+  local:
+    push: false
+manifests:
+  rawYaml:
+    - tests/k8s/deployment.yaml
+verify:
+  - name: integration-test-container
+    container:
+      name: integration-test-container
+      image: quay.io/curl/curl
+    executionMode:
+      kubernetesCluster:
+        jobManifestPath: tests/k8s/test.yaml

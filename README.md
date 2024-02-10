@@ -11,7 +11,7 @@ Mostly yes, however, in cases where you might be using a NodePort service and so
 
 ## How would I use this in my manifests?
 
-You would attach this as sidecar on your pod, and create a new kubernetes NodePort service with the parameters needed to expose this to your upstream load balancer. The service account attached to the pod is used to connect to the kubernetes service so a role binding will need to be attached that gives permission for it to read its pod status.
+You would attach this as sidecar on your pod, and create a new kubernetes NodePort service with the parameters needed to expose this to your upstream load balancer, or use a DaemonSet with a hostPort for the health check. The service account attached to the pod is used to connect to the kubernetes service so a role binding will need to be attached that gives permission for it to read its pod status.
 
 
 ## Environment Variables

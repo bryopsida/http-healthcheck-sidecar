@@ -1,0 +1,35 @@
+name: CI
+on:
+  workflow_dispatch:
+  push:
+    branches: ['main']
+  pull_request:
+    branches: ['main']
+
+jobs:
+  test:
+    name: install-chart
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        k8s:
+          - v1.29.0
+          - v1.28.0
+          - v1.27.0
+          - v1.26.0
+          - v1.25.3
+          - v1.24.7
+          - v1.23.13
+    steps:
+      - name: Checkout
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 
+        with:
+          fetch-depth: 0
+      - name: Create kind ${{ matrix.k8s }} cluster
+        uses: helm/kind-action@4be822c96b3a80076fb61a4e54a4e89d8d79c9c6 
+        with:
+          node_image: kindest/node:${{ matrix.k8s }}
+          version: v0.20.0
+      - name: Test
+        run: make test
