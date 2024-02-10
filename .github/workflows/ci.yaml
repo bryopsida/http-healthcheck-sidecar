@@ -1,6 +1,8 @@
 name: CI
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '22 4 * * *'
   push:
     branches: ['main']
   pull_request:
@@ -37,3 +39,18 @@ jobs:
           sudo install skaffold /usr/local/bin/
       - name: Test
         run: make test
+  build-image:
+    name: Image
+    permissions:
+      packages: write
+      security-events: write
+      id-token: write
+      contents: read
+    needs:
+      - test
+    uses: curium-rocks/flows/.github/workflows/oci-build-image.yml@main
+    with:
+      codeql_enabled: true
+      image_name: http-healtcheck-sidecar
+      registry: 'ghcr.io/bryopsida'
+      push_in_pr: true
