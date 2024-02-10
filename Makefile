@@ -8,5 +8,5 @@ run:
 
 test:
 	skaffold build -q > build_result.json
-	skaffold deploy -a build_result.json
+	skaffold deploy --load-images=true -a build_result.json
 	skaffold verify -a build_result.json

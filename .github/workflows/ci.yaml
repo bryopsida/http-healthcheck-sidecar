@@ -35,7 +35,5 @@ jobs:
         run: |
           curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/latest/skaffold-linux-amd64 && \
           sudo install skaffold /usr/local/bin/
-      - name: Set Dev Context To Prevent Pull
-        run: skaffold --kube-context=kind-kind dev
       - name: Test
         run: make test

@@ -17,6 +17,4 @@ verify:
     container:
       name: integration-test-container
       image: quay.io/curl/curl
-    executionMode:
-      kubernetesCluster:
-        jobManifestPath: tests/k8s/test.yaml
+      args: ["-X", "GET", "--fail", "http://sidecar-service:3000/health"]
