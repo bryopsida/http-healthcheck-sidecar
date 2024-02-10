@@ -11,7 +11,7 @@ Mostly yes, however, in cases where you might be using a NodePort service and so
 
 ## How would I use this in my manifests?
 
-You would attach this as sidecar on your pod, and create a new kubernetes service with the parameters needed to expose this to your upstream load balancer.
+You would attach this as sidecar on your pod, and create a new kubernetes NodePort service with the parameters needed to expose this to your upstream load balancer.
 
 
 ## Environment Variables
