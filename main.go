@@ -5,15 +5,13 @@ import (
 
 	"github.com/bryopsida/http-healthcheck-sidecar/health"
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/recover"
 	"github.com/gofiber/fiber/v2/middleware/redirect"
 )
 
-func isHealthy() bool {
-	return true
-}
-
 func main() {
 	app := fiber.New()
+	app.Use(recover.New())
 
 	app.Get("/health", func(c *fiber.Ctx) error {
 		if health.IsHealthy() {

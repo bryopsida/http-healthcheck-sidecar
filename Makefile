@@ -5,3 +5,8 @@ image:
 
 run:
 	docker run --env="HTTP_HEALTHCHECK_SIDECAR_STATE_OVERRIDE=$(READY_STATE)" -p 3000:3000 ghcr.io/bryopsida/http-healthcheck-sidecar:local
+
+test:
+	skaffold build -q > build_result.json
+	skaffold deploy --load-images=true -a build_result.json
+	skaffold verify -a build_result.json

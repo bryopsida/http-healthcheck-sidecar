@@ -20,3 +20,4 @@
 # Go workspace file
 go.work
 http-healthcheck-sidecar
+build_result.json
