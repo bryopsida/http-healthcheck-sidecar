@@ -3,7 +3,7 @@ RUN apk update && apk add --no-cache git
 WORKDIR $GOPATH/src/http-healthcheck-sidecar/
 COPY . .
 RUN go get -d -v
-RUN go build -o /go/bin/http-healthcheck-sidecar
+RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-w -s" -o /go/bin/http-healthcheck-sidecar
 FROM scratch
 USER 10001
 WORKDIR /app
