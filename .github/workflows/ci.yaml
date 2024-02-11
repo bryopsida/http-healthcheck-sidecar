@@ -29,7 +29,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Create kind ${{ matrix.k8s }} cluster
-        uses: helm/kind-action@4be822c96b3a80076fb61a4e54a4e89d8d79c9c6 
+        uses: helm/kind-action@99576bfa6ddf9a8e612d83b513da5a75875caced 
         with:
           node_image: kindest/node:${{ matrix.k8s }}
           version: v0.20.0
