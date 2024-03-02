@@ -3,7 +3,7 @@ module github.com/bryopsida/http-healthcheck-sidecar
 go 1.22.0
 
 require (
-	github.com/gofiber/fiber/v2 v2.52.1
+	github.com/gofiber/fiber/v2 v2.52.2
 	k8s.io/api v0.29.2
 	k8s.io/apimachinery v0.29.2
 	k8s.io/client-go v0.29.2
