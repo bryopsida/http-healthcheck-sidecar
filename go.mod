@@ -4,9 +4,9 @@ go 1.22.2
 
 require (
 	github.com/gofiber/fiber/v2 v2.52.5
-	k8s.io/api v0.30.2
-	k8s.io/apimachinery v0.30.2
-	k8s.io/client-go v0.30.2
+	k8s.io/api v0.30.3
+	k8s.io/apimachinery v0.30.3
+	k8s.io/client-go v0.30.3
 )
 
 require (
