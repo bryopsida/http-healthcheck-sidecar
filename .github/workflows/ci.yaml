@@ -54,3 +54,4 @@ jobs:
       image_name: http-healthcheck-sidecar
       registry: 'ghcr.io/bryopsida'
       push_in_pr: true
+      platforms: 'linux/amd64,linux/arm64,linux/riscv64'
