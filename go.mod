@@ -2,7 +2,7 @@ module github.com/bryopsida/http-healthcheck-sidecar
 
 go 1.23.0
 
-toolchain go1.24.1
+toolchain go1.24.2
 
 require (
 	github.com/gofiber/fiber/v2 v2.52.6
