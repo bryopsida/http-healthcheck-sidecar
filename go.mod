@@ -7,9 +7,9 @@ toolchain go1.26.0
 require (
 	github.com/gofiber/fiber/v2 v2.52.11
 	github.com/gofiber/fiber/v3 v3.0.0
-	k8s.io/api v0.35.0
-	k8s.io/apimachinery v0.35.0
-	k8s.io/client-go v0.35.0
+	k8s.io/api v0.35.1
+	k8s.io/apimachinery v0.35.1
+	k8s.io/client-go v0.35.1
 )
 
 require (
